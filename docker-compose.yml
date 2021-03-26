@@ -14,6 +14,7 @@ services:
       - php
       - mysql
       - mailhog
+      - cron
     volumes:
       - ./src:/var/www/html
     networks:
@@ -99,6 +100,16 @@ services:
       - ./src:/var/www/html
     working_dir: /var/www/html
     entrypoint: ["php", "artisan", "schedule:work"]
+    networks:
+      - dockerland
+
+  cron:
+    build:
+      context: .
+      dockerfile: docker-compose_cron.dockerfile
+    container_name: cron
+    volumes:
+      - ./src:/var/www/html
     networks:
       - dockerland
 

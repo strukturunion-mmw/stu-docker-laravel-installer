@@ -1,6 +1,10 @@
 FROM php:7.4.12-fpm-alpine
 
 ADD ./php/www.conf /usr/local/etc/php-fpm.d/www.conf
+ADD ./php/php_max_upload.ini /usr/local/etc/php/conf.d/php_max_upload.ini
+
+ADD ./php/localtime /etc/localtime
+
 
 RUN addgroup -g 1000 laravel && adduser -G laravel -g laravel -s /bin/sh -D laravel
 

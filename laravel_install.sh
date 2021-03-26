@@ -56,12 +56,12 @@ fi
 
 # Check further installation options
 echo ""
-read -p "Do you wish to install the Breeze Authentication package [n]?" BREEZEINSTALL
+read -p "Do you wish to install the Breeze Authentication package (Blade Frontend) [n]?" BREEZEINSTALL
 BREEZEINSTALL=${BREEZEINSTALL:-n}
 if [ $BREEZEINSTALL != "y" ]
 then
   # If Breeze Install was opted out, ask for Jetstream Installation
-  read -p "Do you wish to install the Jetstream Authentication package [n]?" JETSTREAMINSTALL
+  read -p "Do you wish to install the Jetstream Authentication package (VueJS Frontend) [n]?" JETSTREAMINSTALL
   JETSTREAMINSTALL=${JETSTREAMINSTALL:-n}
   # If Jetstream was opted in, ask for Inertia option (if no, Livewire will be used)
   if [ $JETSTREAMINSTALL = "y" ]
